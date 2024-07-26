@@ -1,124 +1,100 @@
-# Demonstração de Dispositivo de Impressão Digital
+# Explicação das Dependências do POM
 
-Este projeto é uma aplicação de demonstração para um dispositivo de impressão digital, utilizando o framework SSM e o protocolo WebSocket para comunicação. A aplicação usa a biblioteca `java.org_websocket` para implementar a interface WebSocket.
+Este documento descreve as dependências listadas no arquivo `pom.xml` do projeto.
 
-## Índice
-- [Ambiente de Desenvolvimento](#ambiente-de-desenvolvimento)
-- [Instruções de Configuração](#instruções-de-configuração)
-- [Configuração](#configuração)
-- [Executando o Projeto](#executando-o-projeto)
-- [Esquema de Banco de Dados](#esquema-de-banco-de-dados)
+## Dependências
 
-## Ambiente de Desenvolvimento
-- JDK 1.8
-- Eclipse IDE para Desenvolvedores Java EE ou IntelliJ IDEA Community
-- Maven 3.5 e superior
-- Tomcat 7.0.99
-- MySQL 5.7 e superior
+### Spring Framework
+- **spring-core**: Biblioteca central do Spring Framework. `Versão: 4.0.2.RELEASE`
+- **spring-beans**: Biblioteca de injeção de dependências do Spring. `Versão: 4.0.2.RELEASE`
+- **spring-context**: Biblioteca de configuração do contexto da aplicação. `Versão: 4.0.2.RELEASE`
+- **spring-context-support**: Classes de suporte para o Spring Context. `Versão: 4.0.2.RELEASE`
+- **spring-web**: Biblioteca para construir aplicações web com Spring. `Versão: 4.0.2.RELEASE`
+- **spring-webmvc**: Biblioteca para construir aplicações web com arquitetura MVC. `Versão: 4.0.2.RELEASE`
+- **spring-tx**: Gerenciamento de transações do Spring. `Versão: 4.0.2.RELEASE`
+- **spring-jdbc**: Operações JDBC com Spring. `Versão: 4.0.2.RELEASE`
+- **spring-aop**: Programação orientada a aspectos com Spring. `Versão: 4.0.2.RELEASE`
+- **spring-oxm**: Mapeamento Objeto/XML com Spring. `Versão: 4.0.2.RELEASE`
+- **spring-test**: Biblioteca de teste para aplicações Spring. `Versão: 4.0.2.RELEASE`
 
-## Instruções de Configuração
+### Jackson (Processamento JSON)
+- **jackson-core**: Biblioteca central do Jackson para processamento JSON. `Versão: 2.9.8`
+- **jackson-databind**: Biblioteca de vinculação JSON. `Versão: 2.9.8`
+- **jackson-annotations**: Anotações JSON do Jackson. `Versão: 2.9.8`
 
-1. **Clonar o Repositório:**
-   ```bash
-   git clone https://github.com/igorferreira/FingerprintDeviceDemo.git
-   cd FingerprintDeviceDemo
-   ```
+### MySQL
+- **mysql-connector-java**: Conector Java para bancos de dados MySQL. `Versão: 8.0.32`
 
-2. **Importar o Projeto no Eclipse ou IntelliJ IDEA:**
-    - **Eclipse:**
-        - Abra o Eclipse IDE.
-        - Vá em `File -> Import -> Existing Maven Projects`.
-        - Selecione o diretório do repositório clonado.
-        - Clique em `Finish`.
-    - **IntelliJ IDEA:**
-        - Abra o IntelliJ IDEA.
-        - Vá em `File -> New -> Project from Existing Sources`.
-        - Selecione o diretório do repositório clonado.
-        - Escolha `Import project from external model -> Maven`.
-        - Clique em `Finish`.
+### MyBatis (Framework de Persistência)
+- **mybatis**: Biblioteca principal do MyBatis. `Versão: 3.5.6`
+- **mybatis-spring**: Integração do MyBatis com o Spring. `Versão: 1.3.0`
 
-3. **Configurar o Banco de Dados MySQL:**
-    - Inicie seu servidor MySQL.
-    - Importe o esquema do banco de dados a partir do arquivo `fingerprint.sql`:
-      ```sql
-      mysql -u username -p database_name < /path/to/fingerprint.sql
-      ```
+### Java Servlet API
+- **javax.servlet-api**: API de servlet para construir aplicações servlet. `Versão: 3.0.1`
 
-4. **Instalar e Configurar o Tomcat 7.0.99:**
-    - **Download do Tomcat:**
-        - Baixe o Tomcat 7.0.99 do [site oficial](https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.99/bin/).
-    - **Instalar o Tomcat:**
-        - Extraia o arquivo baixado para um diretório de sua preferência.
-    - **Configurar o Tomcat no Eclipse:**
-        - Vá em `Window -> Preferences -> Server -> Runtime Environments`.
-        - Clique em `Add`, selecione `Apache Tomcat v7.0` e clique em `Next`.
-        - Navegue até o diretório onde você extraiu o Tomcat e clique em `Finish`.
-    - **Configurar o Tomcat no IntelliJ IDEA:**
-        - Vá em `File -> Settings -> Build, Execution, Deployment -> Application Servers`.
-        - Clique em `+`, selecione `Tomcat Server`, e navegue até o diretório onde você extraiu o Tomcat.
-        - Clique em `Apply` e depois em `OK`.
+### Java WebSocket API
+- **Java-WebSocket**: Biblioteca para construir aplicações WebSocket. `Versão: 1.5.2`
 
-5. **Abrir a Porta 7788 no Firewall do Windows:**
-    - Certifique-se de que a porta 7788 está aberta no seu firewall para permitir a comunicação.
+### Java JSON API
+- **javax.json-api**: API JSON para processamento JSON. `Versão: 1.1.4`
+- **javax.json**: Implementação do Glassfish para processamento JSON. `Versão: 1.1.4`
 
-6. **Configurar o IP do Servidor:**
-    - Defina o IP do servidor para o IP local do seu computador e configure a rede e a porta do servidor para 7788.
-    - Atualize `tomcat/conf/server.xml` para configurar as definições de imagem.
+### Apache Commons
+- **commons-codec**: Biblioteca para codificação e decodificação de dados. `Versão: 1.14`
+- **commons-dbcp**: Pool de conexões de banco de dados. `Versão: 1.2.2`
+- **commons-fileupload**: Biblioteca para manipulação de uploads de arquivos. `Versão: 1.3.1`
+- **commons-io**: Biblioteca para operações de E/S. `Versão: 2.5`
 
-## Configuração
+### JSTL (JSP Standard Tag Library)
+- **jstl**: Biblioteca de tags padrão para JSP. `Versão: 1.2`
 
-### pom.xml
-As dependências do projeto e as configurações de plugins são gerenciadas no arquivo `pom.xml`. Algumas dependências principais incluem:
-- Spring Framework
-- MyBatis
-- MySQL Connector
-- Java-WebSocket
-- Jackson (para processamento JSON)
-- Log4J (para logging)
+### Logging
+- **log4j**: Biblioteca de logging. `Versão: 1.2.17`
+- **slf4j-api**: API de abstração de logging. `Versão: 1.7.7`
+- **slf4j-log4j12**: Implementação do SLF4J para Log4J. `Versão: 1.7.7`
 
-### Classe Principal
-A classe principal para o servidor WebSocket é `WSSServer`. O método `onMessage` lida com os dados recebidos do dispositivo, e a classe `WebSocketPool` gerencia as conexões do dispositivo e a transmissão de dados.
+### Outras Dependências
+- **jasperreports**: Biblioteca de relatórios JasperReports. `Versão: 6.2.1`
+- **itextpdf**: Biblioteca para manipulação de PDFs. `Versão: 5.5.13.2`
+- **olap4j**: Biblioteca para operações OLAP. `Versão: 1.2.0`
+- **fastjson**: Biblioteca para processamento rápido de JSON. `Versão: 1.1.41`
+- **jackson-mapper-asl**: Biblioteca de mapeamento JSON do Jackson. `Versão: 1.9.13`
+- **pagehelper**: Biblioteca de paginação para MyBatis. `Versão: 5.1.4`
 
-## Executando o Projeto
+## Dependências de Teste
+- **junit**: Biblioteca para testes unitários com JUnit. `Versão: 4.13.2`
 
-1. **Iniciar o Servidor Tomcat:**
-    - **Eclipse:**
-        - No Eclipse, clique com o botão direito no projeto.
-        - Selecione `Run As -> Run on Server`.
-        - Escolha o servidor Tomcat configurado e clique em `Finish`.
-    - **IntelliJ IDEA:**
-        - Vá em `Run -> Edit Configurations`.
-        - Clique em `+` e selecione `Tomcat Server -> Local`.
-        - Configure o artefato para `war` e clique em `Apply` e depois em `OK`.
-        - Clique em `Run` para iniciar o servidor.
+## Repositórios
+O projeto utiliza vários repositórios para resolver suas dependências, incluindo:
+- Maven Central
+- JBoss
+- JCenter (Bintray)
+- IBM
+- eXo Platform
+- JitPack
+- Sonatype OSS
+- RedHat GA
+- Confluent
+- Atlassian
+- Apache Snapshots
+- Sonatype
+- JBoss EA
+- Microsoft
+- Google
+- Oracle
+- JasperReports
+- Jaspersoft Third-Party
+- Repositório local
 
-2. **Operar o Dispositivo:**
-    - Certifique-se de que o dispositivo está configurado para se comunicar com o servidor usando o IP e a porta corretos.
-    - Os números de backup correspondem a diferentes tipos de dados:
-        - `0-9`: Impressão Digital
-        - `20-27`: Face (20-23 é a primeira face, 24-27 é outra face)
-        - `30-37`: Palma da Mão
-        - `50`: Foto
+## Plugins do Maven
+O projeto utiliza diversos plugins do Maven para gerenciar o ciclo de vida do build:
+- **maven-clean-plugin**: Plugin para limpeza. `Versão: 3.1.0`
+- **maven-resources-plugin**: Plugin para recursos. `Versão: 3.0.2`
+- **maven-compiler-plugin**: Plugin para compilação. `Versão: 3.8.0`
+- **maven-surefire-plugin**: Plugin para testes. `Versão: 2.22.1`
+- **maven-jar-plugin**: Plugin para criação de JARs. `Versão: 3.0.2`
+- **maven-install-plugin**: Plugin para instalação. `Versão: 2.5.2`
+- **maven-deploy-plugin**: Plugin para deploy. `Versão: 2.8.2`
+- **maven-dependency-plugin**: Plugin para gerenciamento de dependências. `Versão: 3.2.0`
 
-## Esquema de Banco de Dados
-
-O esquema do banco de dados está definido no arquivo `fingerprint.sql`. Inclui tabelas e relacionamentos necessários para armazenar dados de usuários, dados de impressões digitais e outras informações relacionadas.
-
-```sql
--- Exemplo de SQL do arquivo fingerprint.sql
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- Mais definições de tabelas...
-```
-
-## Recursos Adicionais
-
-- Consulte o documento `TH_Java_SDK_3.5_settingfile.docx` para instruções detalhadas de configuração.
-- Para detalhes de protocolo, consulte o documento `websocket+json protocol2.4.pdf`.
-
-Sinta-se à vontade para contribuir com o projeto submetendo pull requests ou relatando problemas.
+Este documento fornece uma visão geral das dependências e configurações usadas no projeto para ajudar a entender melhor as tecnologias e bibliotecas envolvidas.
