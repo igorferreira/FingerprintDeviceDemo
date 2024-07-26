@@ -11,5 +11,7 @@ git commit -m "Commit inicial"
 # Adicionar o repositório remoto
 git remote add origin https://github.com/igorferreira/FingerprintDeviceDemo.git
 
+git push --set-upstream origin Main
+
 # Enviar os arquivos para o GitHub
 git push -u origin master
